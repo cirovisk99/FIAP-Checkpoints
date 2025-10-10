@@ -1,9 +1,9 @@
 # Estatística - CP1
-# Conceito: O sistema armazena uma lista de produtos e suas quantidades. 
-# O usuário pode adicionar um produto, atualizar a quantidade de um item existente ou listar 
+# Conceito: O sistema armazena uma lista de produtos e suas quantidades.  # nolint
+# O usuário pode adicionar um produto, atualizar a quantidade de um item existente ou listar  # nolint
 # todos os produtos que estão abaixo de um nível mínimo de estoque.
 
-# --- Estrutura de Dados Inicial (Equivalente à lista de dicionários em Python) ---
+# --- Estrutura de Dados Inicial (Equivalente à lista de dicionários em Python) --- # nolint: line_length_linter.
 # Em R, um data.frame é a estrutura ideal para dados tabulares como este.
 estoque <- data.frame(
   produto = c("Televisão", "Geladeira", "Smartphone", "Micro-ondas", "Fone de ouvido"),
@@ -89,7 +89,7 @@ adicionar_produto <- function() {
     estoque_minimo <- suppressWarnings(as.integer(estoque_minimo_str))
     
     if (is.na(quantidade) || is.na(estoque_minimo) || quantidade < 0 || estoque_minimo < 0) {
-      cat("Entrada inválida. Quantidade e estoque mínimo devem ser números inteiros positivos. Operação cancelada.\n")
+      cat("Entrada inválida. Quantidade e estoque mínimo devem ser números inteiros positivos. Operação cancelada.\n") # nolint
     } else {
       novo_item <- data.frame(
         produto = nome_do_produto,
