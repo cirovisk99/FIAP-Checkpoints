@@ -6,11 +6,11 @@
 # --- Estrutura de Dados Inicial (Equivalente à lista de dicionários em Python) --- # nolint: line_length_linter.
 # Em R, um data.frame é a estrutura ideal para dados tabulares como este.
 estoque <- data.frame(
-  produto = c("Televisão", "Geladeira", "Smartphone", "Micro-ondas", "Fone de ouvido"),
-  categoria = c("eletrônicos", "eletrodomésticos", "eletrônicos", "eletrodomésticos", "eletrônicos"),
+  produto = c("Televisão", "Geladeira", "Smartphone", "Micro-ondas", "Fone de ouvido"), # nolint: line_length_linter.
+  categoria = c("eletrônicos", "eletrodomésticos", "eletrônicos", "eletrodomésticos", "eletrônicos"), # nolint
   quantidade = c(3, 5, 9, 8, 20),
   estoque_minimo = c(5, 2, 10, 3, 5),
-  stringsAsFactors = FALSE # Importante para evitar que strings se tornem fatores
+  stringsAsFactors = FALSE # Importante para evitar que strings se tornem fatores # nolint: line_length_linter.
 )
 
 # --- Funções Auxiliares ---
@@ -37,7 +37,7 @@ exibir_opcoes <- function() {
 
 exibir_subtitulo <- function(texto) {
   # Limpa o console (funciona no RStudio)
-  cat("\014") 
+  cat("\014")  # nolint: trailing_whitespace_linter.
   linha <- paste(rep("*", nchar(texto)), collapse = "")
   cat(linha, "\n")
   cat(texto, "\n")
@@ -53,12 +53,13 @@ voltar_ao_menu_principal <- function() {
 
 adicionar_produto <- function() {
   exibir_subtitulo("Adicionar ou atualizar produtos no estoque")
-  
-  nome_do_produto <- readline("Digite o nome do produto que deseja adicionar/atualizar: ")
+  nome_do_produto <- readline("Digite o nome do produto que deseja adicionar/atualizar: ") # nolint
   
   # Encontra o índice do produto no data.frame (ignorando maiúsculas/minúsculas)
   indice_produto <- which(tolower(estoque$produto) == tolower(nome_do_produto))
-  
+
+
+
   # a) Estrutura condicional (if/else) para verificar se o produto existe
   if (length(indice_produto) > 0) {
     # Produto existe, então vamos atualizar
@@ -88,7 +89,7 @@ adicionar_produto <- function() {
     estoque_minimo_str <- readline(paste("Digite o estoque mínimo para o produto '", nome_do_produto, "': "))
     estoque_minimo <- suppressWarnings(as.integer(estoque_minimo_str))
     
-    if (is.na(quantidade) || is.na(estoque_minimo) || quantidade < 0 || estoque_minimo < 0) {
+    if (is.na(quantidade) || is.na(estoque_minimo) || quantidade < 0 || estoque_minimo < 0) { # nolint
       cat("Entrada inválida. Quantidade e estoque mínimo devem ser números inteiros positivos. Operação cancelada.\n") # nolint
     } else {
       novo_item <- data.frame(
@@ -165,7 +166,7 @@ main <- function() {
 }
 
 # --- Ponto de Entrada do Script ---
-# Verifica se o script está sendo executado diretamente e chama a função principal
+# Verifica se o script está sendo executado diretamente e chama a função principal # nolint
 if (interactive()) {
   main()
 }
